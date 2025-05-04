@@ -17,10 +17,8 @@ const SocialMediaUploadForm = ({ platform }) => {
 
     try {
       if (platform === 'youtube') {
-        // Call YouTube upload function
         await YouTubeUpload(videoFile, title, description, tagsArray);
       } else if (platform === 'instagram') {
-        // Call Instagram upload function
         await InstagramUpload(videoFile, title);
       }
 

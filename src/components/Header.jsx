@@ -7,16 +7,17 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold text-indigo-600">🎬 VideoGen</h1>
+          <h1 className="text-xl font-bold text-indigo-600">🎬 VideoGen</h1>
       <div className="space-x-4">
         {isSignedIn ? (
           <div className="flex gap-4">
-             <Link to={'/publish'} className={`${location.pathname === "/publish" && "font-semibold underline"}`}>Social Media Publishing</Link>
-                    <UserButton afterSignOutUrl="/" />
+            <Link to={'/'} className={`${location.pathname === "/" && "font-semibold underline"}`}>Generate Idea</Link>
 
-          
+            <Link to={'/dashboard'} className={`${location.pathname === "/dashboard" && "font-semibold underline"}`}>Dashboard</Link>
+            <Link to={'/publish'} className={`${location.pathname === "/publish" && "font-semibold underline"}`}>Social Media Publishing</Link>
+            <UserButton afterSignOutUrl="/" />
           </div>
-          
+
         ) : (
           <>
             <SignInButton mode="modal">
@@ -30,7 +31,7 @@ const Header = () => {
               </button>
             </SignUpButton>
 
-           
+
           </>
         )}
       </div>

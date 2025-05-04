@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-// Function to upload media to Instagram
 const InstagramUpload = async (videoFile, caption) => {
   try {
     const formData = new FormData();
     formData.append('media', videoFile);
 
-    // Replace with your Instagram Access Token
     const accessToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
 
     const mediaUploadResponse = await axios.post(

@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-// Function to upload media to YouTube
 const YouTubeUpload = async (videoFile, title, description, tags) => {
   try {
     const formData = new FormData();
     formData.append('media', videoFile);
 
-    // Replace with your YouTube API details
-    const accessToken = 'AIzaSyCoHNNTVgHkKGP0aqCqFiTMDyMkpxOHqQo';
+    const accessToken = import.meta.env.VITE_ACCESS_TOEKEN
 
     const mediaUploadResponse = await axios.post(
       `https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status`,
@@ -38,4 +36,6 @@ const YouTubeUpload = async (videoFile, title, description, tags) => {
 };
 
 export default YouTubeUpload;
+
+
 

@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button } from './ui/moving-border';
+import { PlaceholdersAndVanishInput } from './ui/placeholders-and-vanish-input';
+import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 
 const VideoContentGenerator = () => {
   const [topic, setTopic] = useState('');
@@ -9,12 +12,29 @@ const VideoContentGenerator = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
-
+  const words = [
+    {
+      text: "Build",
+    },
+    {
+      text: "awesome",
+    },
+    {
+      text: "content",
+    },
+    {
+      text: "with",
+    },
+    {
+      text: "VideoGen.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
   const handleGenerate = async () => {
-    if (topic.trim().length === 0 || tone.trim().length === 0) {
-      setError('Please fill in both fields before generating.');
-      return;
-    }
+    // if (topic.trim().length === 0 || tone.trim().length === 0) {
+    //   setError('Please fill in both fields before generating.');
+    //   return;
+    // }
 
     setLoading(true);
     setError('');
@@ -42,9 +62,9 @@ const VideoContentGenerator = () => {
         },
         {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
             'Content-Type': 'application/json',
-            'HTTP-Referer': 'http://localhost:3000',
+            'HTTP-Referer': 'http://localhost:5173',
             'X-Title': 'Video Idea Generator',
           },
         }
@@ -69,8 +89,9 @@ const VideoContentGenerator = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 to-white px-4">
-      <div className="bg-white shadow-xl rounded-xl p-8 w-[70%] border border-gray-200">
-        <h1 className="text-2xl font-bold text-indigo-600 mb-6 text-center">🎬 Video Idea Generator</h1>
+      <div className="bg-white shadow-xl rounded-xl p-8 w-[80%] border border-gray-200">
+        {/* <h1 className="text-2xl font-bold text-indigo-600 mb-6 text-center">🎬 Video Idea Generator</h1> */}
+        <TypewriterEffectSmooth words={words} />
 
         {/* Chat Area */}
         <div className="mb-6 h-80 overflow-y-auto p-4 space-y-4">
@@ -99,14 +120,20 @@ const VideoContentGenerator = () => {
 
         {/* User Input - Fixed Inputs in One Line */}
         <div className="flex space-x-4 mb-4">
-          <input
+          <PlaceholdersAndVanishInput  type="text"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            onSubmit={handleGenerate}
+            placeholder="Enter a topic"/>
+          {/* <input
             type="text"
             value={topic}
+
             onChange={(e) => setTopic(e.target.value)}
             placeholder="Enter a topic"
             className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-          />
-          <select
+          /> */}
+          {/* <select
             value={tone}
             onChange={(e) => setTone(e.target.value)}
             className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 focus:outline-none"
@@ -117,18 +144,29 @@ const VideoContentGenerator = () => {
             <option value="informative">Informative</option>
             <option value="motivational">Motivational</option>
             <option value="inspirational">Inspirational</option>
-          </select>
+          </select> */}
         </div>
 
-        <button
-          onClick={handleGenerate}
+        {/* <button
           disabled={loading}
           className={`w-full py-2 rounded-md font-semibold text-white transition duration-200 ${
             loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
           }`}
         >
           {loading ? 'Generating...' : 'Generate Idea'}
-        </button>
+        </button> */}
+        {/* <div className='flex justify-center'>
+        <Button
+         
+         onClick={handleGenerate}
+         borderRadius="1.75rem"
+        className="bg-white dark:bg-slate-900 font-semibold text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer"
+      >
+         {loading ? 'Generating...' : 'Generate Idea'}
+      </Button>
+        </div>
+        */}
+
 
         {/* Error */}
         {error && <p className="text-red-500 text-sm mt-4 text-center">{error}</p>}
@@ -138,3 +176,4 @@ const VideoContentGenerator = () => {
 };
 
 export default VideoContentGenerator;
+

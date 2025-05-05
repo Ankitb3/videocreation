@@ -62,7 +62,7 @@ const VideoContentGenerator = () => {
         },
         {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
             'Content-Type': 'application/json',
             'HTTP-Referer': 'http://localhost:5173',
             'X-Title': 'Video Idea Generator',

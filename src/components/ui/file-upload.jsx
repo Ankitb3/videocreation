@@ -60,6 +60,7 @@ export const FileUpload = ({
           ref={fileInputRef}
           id="file-upload-handle"
           type="file"
+           accept="video/*"
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className="hidden"
         />

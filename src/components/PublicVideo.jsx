@@ -5,19 +5,19 @@ import { Input, Button, Card, Row, Col, Spin, message } from "antd";
 const { Meta } = Card;
 
 function PublicVideos() {
-  const [channelId, setChannelId] = useState(""); // The channelId from input
-  const [videos, setVideos] = useState([]); // Store fetched videos
-  const [loading, setLoading] = useState(false); // Loading state for fetching
-  const [error, setError] = useState(""); // Error state for handling errors
+  const [channelId, setChannelId] = useState(""); 
+  const [videos, setVideos] = useState([]); 
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(""); 
 
-  // Fetch videos when the button is clicked
+  
   const fetchVideos = async () => {
     if (!channelId) {
       message.error("Please enter a valid channel ID.");
       return;
     }
     setLoading(true);
-    setError(""); // Reset previous errors
+    setError(""); 
     try {
       const response = await axios.get(
         `https://videogenbackend-1.onrender.com/${channelId}`
@@ -35,7 +35,6 @@ function PublicVideos() {
     <div className="container" style={{ padding: "20px" }}>
       <h2>Get Public Videos from YouTube Channel</h2>
       
-      {/* Channel ID Input */}
       <Input
         placeholder="Enter YouTube Channel ID"
         value={channelId}

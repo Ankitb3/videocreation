@@ -24,9 +24,6 @@ const CustomAlert = ({ message, onClose }) => {
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn } = useUser();
 
-  // Automatically show alert if not signed in
-
-
   if (!isSignedIn) {
     return (
       <>
@@ -46,7 +43,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  return children; // Render children if signed in
+  return children; 
 };
 
 export default ProtectedRoute;

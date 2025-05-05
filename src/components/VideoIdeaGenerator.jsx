@@ -62,7 +62,7 @@ const VideoContentGenerator = () => {
         },
         {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
             'Content-Type': 'application/json',
             'HTTP-Referer': 'http://localhost:5173',
             'X-Title': 'Video Idea Generator',
@@ -125,47 +125,9 @@ const VideoContentGenerator = () => {
             onChange={(e) => setTopic(e.target.value)}
             onSubmit={handleGenerate}
             placeholder="Enter a topic"/>
-          {/* <input
-            type="text"
-            value={topic}
-
-            onChange={(e) => setTopic(e.target.value)}
-            placeholder="Enter a topic"
-            className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-          /> */}
-          {/* <select
-            value={tone}
-            onChange={(e) => setTone(e.target.value)}
-            className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-          >
-            <option value="" disabled>Select Tone</option>
-            <option value="funny">Funny</option>
-            <option value="serious">Serious</option>
-            <option value="informative">Informative</option>
-            <option value="motivational">Motivational</option>
-            <option value="inspirational">Inspirational</option>
-          </select> */}
+        
         </div>
-
-        {/* <button
-          disabled={loading}
-          className={`w-full py-2 rounded-md font-semibold text-white transition duration-200 ${
-            loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
-          }`}
-        >
-          {loading ? 'Generating...' : 'Generate Idea'}
-        </button> */}
-        {/* <div className='flex justify-center'>
-        <Button
-         
-         onClick={handleGenerate}
-         borderRadius="1.75rem"
-        className="bg-white dark:bg-slate-900 font-semibold text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer"
-      >
-         {loading ? 'Generating...' : 'Generate Idea'}
-      </Button>
-        </div>
-        */}
+        
 
 
         {/* Error */}

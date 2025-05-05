@@ -1,4 +1,3 @@
-// src/components/Dashboard.js
 import { useUser, SignOutButton } from '@clerk/clerk-react';
 
 const Dashboard = () => {
